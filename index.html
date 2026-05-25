@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Chave</title>
+    <style>
+        body {
+            background-color: #0f0f12;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #16161a;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 320px;
+            width: 90%;
+            border: 1px solid #24242b;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+        h2 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .key-box {
+            background-color: #202026;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffeb3b;
+            border-radius: 6px;
+            border: 1px solid #383842;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .btn-copy {
+            background-color: #00e676;
+            color: #000000;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Sua Key Gerada:</h2>
+    
+    <div class="key-box" id="keyText">KEY_26</div>
+    
+    <button class="btn-copy" onclick="copiarKey()" id="copyBtn">Copiar Key</button>
+</div>
+
+<script>
+    function copiarKey() {
+        // Corrigido de 'local' para 'const' do JavaScript
+        const key = "KEY_26"; 
+        
+        navigator.clipboard.writeText(key).then(function() {
+            const btn = document.getElementById("copyBtn");
+            btn.innerText = "Copiado!";
+            btn.style.backgroundColor = "#ffffff";
+            
+            setTimeout(function() {
+                btn.innerText = "Copiar Key";
+                btn.style.backgroundColor = "#00e676";
+            }, 2000);
+        }).catch(function() {
+            alert("Erro ao copiar! Selecione o texto manualmente.");
+        });
+    }
+</script>
+
+</body>
+</html>
